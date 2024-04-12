@@ -1,9 +1,14 @@
 package com.harjoitustyo.movieapp.domain;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity // Merkitsee luokan JPA-entiteetiksi
@@ -11,15 +16,19 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id // Määrittää seuraavan kentän pääavaimen (primary key) sarakkeeksi
-    @GeneratedValue(strategy = GenerationType.AUTO) // Automaattinen pääavaimen generointi
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Automaattinen pääavaimen generointi
     private Long id;
-
-    // Lisää muita ominaisuuksia, kuten käyttäjänimi ja salasana
     private String username;
     private String password;
-
-    // Jätä pois tietoturvasyistä, kun käytät oikeita salasanoja
     private String roles; // Yksinkertainen roolien hallinta esimerkin vuoksi
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_favorites",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "movie_id")
+    )
+    private List<Movie> favoriteMovies;
 
     // Getterit ja setterit kaikille kentille
     public Long getId() {
@@ -52,5 +61,12 @@ public class User {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+    public List<Movie> getFavoriteMovies() {
+        return favoriteMovies;
+    }
+
+    public void setFavoriteMovies(List<Movie> favoriteMovies) {
+        this.favoriteMovies = favoriteMovies;
     }
 }
