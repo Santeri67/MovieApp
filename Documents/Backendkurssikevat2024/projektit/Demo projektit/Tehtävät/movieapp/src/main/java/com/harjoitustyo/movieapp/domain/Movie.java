@@ -41,7 +41,7 @@ public class Movie {
         return genre;
     }
     public void setGenre(String genre) {
-        this.title = genre;
+        this.genre = genre;
     }
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -64,8 +64,8 @@ public class Movie {
     public String getDescription() {
         return description;
     }
-    public void setDescription(String duration) {
-        this.duration = duration;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     // Lisää loput getterit ja setterit...

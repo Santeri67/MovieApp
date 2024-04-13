@@ -35,9 +35,12 @@ public class WebSecurityConfig {
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/main", true))
             .logout(logout -> logout
-                .logoutSuccessUrl("/login").permitAll())
+                .logoutUrl("/logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/login?logout").permitAll())
                 .headers(headers -> headers
-                .frameOptions(frameOptions -> frameOptions.sameOrigin()));
+            .frameOptions().sameOrigin());
 
         // Configure authentication manager with user details and password encoder
         AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);

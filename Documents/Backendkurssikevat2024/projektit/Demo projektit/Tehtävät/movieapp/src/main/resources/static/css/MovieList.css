@@ -1,0 +1,26 @@
+.movie-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.movie-list-table, .movie-list-table th, .movie-list-table td {
+    border: 1px solid #ddd;
+}
+
+.movie-list-table th, .movie-list-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.movie-list-table th {
+    background-color: #f2f2f2;
+}
+
+.movie-list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.movie-list-table tr:hover {
+    background-color: #e8f4f8;
+}

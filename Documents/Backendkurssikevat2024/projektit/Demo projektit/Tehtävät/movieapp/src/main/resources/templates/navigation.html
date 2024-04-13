@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+</head>
+<body>
+    <nav class="topnav">
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li sec:authorize="isAuthenticated()" ><a th:href="@{/main}">Movies</a></li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a></li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Register</a></li>
+        </ul>
+        
+    </nav>
+</body>
+</html>
