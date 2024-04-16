@@ -29,7 +29,7 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**", "/api/**"))
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers(HttpMethod.POST, "/api/movies").authenticated()
-                .requestMatchers("/", "/home", "/register", "/h2-console/**").permitAll()
+                .requestMatchers("/", "/home", "/css/**", "/register", "/h2-console/**").permitAll()
                 .anyRequest().authenticated())
             .formLogin(form -> form
                 .loginPage("/login").permitAll()
@@ -39,8 +39,8 @@ public class WebSecurityConfig {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/login?logout").permitAll())
-                .headers(headers -> headers
-            .frameOptions().sameOrigin());
+            .headers(headers -> headers
+                .frameOptions(frameOptions -> frameOptions.sameOrigin()));
 
         // Configure authentication manager with user details and password encoder
         AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);

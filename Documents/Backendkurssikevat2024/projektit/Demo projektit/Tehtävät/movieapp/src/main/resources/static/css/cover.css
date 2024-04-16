@@ -1,0 +1,32 @@
+:root {
+  --main-color: blueviolet; /* Example variable */
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif; /* or any other font you prefer */
+}
+
+.cover-container {
+  color: var(--main-color); /* Use of CSS variable */
+}
+
+.alert-info {
+  position: absolute; /* Making the alert absolute position to place it under the nav bar */
+  left: 4px; /* Align to the left side */
+  top: 2px; /* Adjust this value depending on your navbar height */
+  width: 210px;
+}
+
+/* Centering content */
+.text-center {
+
+  /* Add other styles as needed */
+}
+
+h1, .lead {
+  color: var(--main-color);
+  /* Additional styling */
+}
+
+/* Continue to adjust other styles as needed to match your design */

@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity // Merkitsee luokan JPA-entiteetiksi
 @Table(name = "kayttajat")
@@ -18,7 +19,9 @@ public class User {
     @Id // Määrittää seuraavan kentän pääavaimen (primary key) sarakkeeksi
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Automaattinen pääavaimen generointi
     private Long id;
+    @NotBlank
     private String username;
+    @NotBlank
     private String password;
     private String roles; // Yksinkertainen roolien hallinta esimerkin vuoksi
 

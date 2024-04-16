@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/topnav.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cover.css}" />
+    <!-- Include Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div th:replace="navigation.html :: body"></div>
-    <h1>Welcome to the Movie and TV Show Review Platform!</h1>
+    <!-- User alert should go right here, below navigation -->
+    <div sec:authorize="isAuthenticated()" class="alert alert-info" role="alert">
+        Logged in as: <span sec:authentication="name"></span>
+    </div>
+    <div class="container text-center mt-5">
+        <h1>Welcome to my website!</h1>
+        <p class="lead">MovieApp is an application where users can add favourite movies, review them and see other people's favourites, top-lists, etc.</p>
+        <!-- Login button shown only if user is not authenticated -->
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
 </body>
 </html>

@@ -15,31 +15,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.harjoitustyo.movieapp.domain.Movie;
-import com.harjoitustyo.movieapp.repository.MovieRepository;
+import com.harjoitustyo.movieapp.service.MovieService;
 
-@Controller // Change this to @Controller
+@Controller
 @RequestMapping("/api/movies")
 public class MovieController {
 
-    private final MovieRepository movieRepository;
+    private final MovieService movieService;
 
     @Autowired
-    public MovieController(MovieRepository movieRepository) {
-        this.movieRepository = movieRepository;
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
     }
 
-    // Change this method to return a redirection String
     @PostMapping
-    @ResponseBody // This ensures the response body is JSON
+    @ResponseBody
     public ResponseEntity<?> addMovie(@RequestBody Movie movie) {
-    Movie savedMovie = movieRepository.save(movie);
-    return ResponseEntity.status(HttpStatus.CREATED).body(savedMovie);
-}
+        Movie savedMovie = movieService.saveMovie(movie);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedMovie);
+    }
 
     @PostMapping("/addMovie")
-    @ResponseBody // Ensure that this method returns a JSON response
+    @ResponseBody
     public ResponseEntity<?> createMovie(@RequestBody Movie movie) {
-        Movie savedMovie = movieRepository.save(movie);
+        Movie savedMovie = movieService.saveMovie(movie);
         Map<String, Object> response = new HashMap<>();
         response.put("id", savedMovie.getId());
         response.put("title", savedMovie.getTitle());
@@ -49,14 +48,12 @@ public class MovieController {
     
     @GetMapping
     public ResponseEntity<Iterable<Movie>> getAllMovies() {
-        return ResponseEntity.ok(movieRepository.findAll());
+        return ResponseEntity.ok(movieService.getAllMovies());
     }
     
     @GetMapping("/list")
     public String listMovies(Model model) {
-    model.addAttribute("movies", movieRepository.findAll());
-    return "main"; // Assumes that 'main' is the template where movies are listed
+        model.addAttribute("movies", movieService.getAllMovies());
+        return "main"; // Assumes that 'main' is the template where movies are listed
+    }
 }
-
-}
-

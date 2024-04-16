@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-
     <meta charset="UTF-8">
     <title>Main Page</title>
     <link rel="stylesheet" href="/css/MovieList.css">
@@ -11,8 +8,6 @@
     <script src="/js/main.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/topnav.css}" />
     <meta name="_csrf" th:content="${_csrf.token}"/>
-
-
 </head>
 <body>
     <div th:replace="navigation.html :: body"></div>
@@ -30,10 +25,7 @@
         <p>You are not logged in</p>
     </div>
     
-
     <input type="text" id="searchBox" onkeyup="searchMovies()" placeholder="Search movies...">
-
-    
     
     <table class="movie-list-table">
         <thead>
@@ -92,9 +84,6 @@
 
     </form>
 
-    
-
 </body>
-
 </html>
 
