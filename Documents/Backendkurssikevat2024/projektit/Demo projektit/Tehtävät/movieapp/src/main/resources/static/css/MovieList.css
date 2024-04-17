@@ -1,26 +1,25 @@
-.movie-list-table {
-    width: 100%;
+.table.table-dark.table-striped {
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: transparent;
+
 }
 
-.movie-list-table, .movie-list-table th, .movie-list-table td {
-    border: 1px solid #ddd;
-}
-
-.movie-list-table th, .movie-list-table td {
+.table.table-dark.table-striped th, .table.table-dark.table-striped td {
+    border: 1px solid black;
     padding: 8px;
     text-align: left;
+    color: var(--main-color);
 }
 
-.movie-list-table th {
-    background-color: #f2f2f2;
+
+
+.table.table-dark.table-striped tr:nth-child(even) {
+
 }
 
-.movie-list-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+.table.table-dark.table-striped tr:hover {
+    background-color: #9ec2fd;
 }
 
-.movie-list-table tr:hover {
-    background-color: #e8f4f8;
-}

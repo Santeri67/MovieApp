@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,14 +30,14 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity<?> addMovie(@RequestBody Movie movie) {
         Movie savedMovie = movieService.saveMovie(movie);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedMovie);
     }
 
-    @PostMapping("/addMovie")
+    @PostMapping(path = "/addMovie", consumes = "application/json")
     @ResponseBody
     public ResponseEntity<?> createMovie(@RequestBody Movie movie) {
         Movie savedMovie = movieService.saveMovie(movie);
@@ -56,4 +58,13 @@ public class MovieController {
         model.addAttribute("movies", movieService.getAllMovies());
         return "main"; // Assumes that 'main' is the template where movies are listed
     }
-}
+    @DeleteMapping("/{movieId}")
+public ResponseEntity<?> deleteMovie(@PathVariable Long movieId) {
+    try {
+        movieService.deleteMovieById(movieId);
+        return ResponseEntity.ok().build(); // Send a successful response
+    } catch (Exception e) {
+        e.printStackTrace(); // Log the exception for debugging
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting movie");
+    }
+}}

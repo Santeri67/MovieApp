@@ -36,11 +36,11 @@ public class UserService {
         user.setRoles("ROLE_USER,ROLE_ADMIN"); // Aseta oletusrooli
         return userRepository.save(user);
 }
-public void addFavoriteMovie(User user, Long movieId) {
-    Movie movie = movieRepository.findById(movieId)
+    public void addFavoriteMovie(User user, Long movieId) {
+        Movie movie = movieRepository.findById(movieId)
         .orElseThrow(() -> new RuntimeException("Movie not found"));
-    user.getFavoriteMovies().add(movie);
-    userRepository.save(user);
+            user.getFavoriteMovies().add(movie);
+            userRepository.save(user);
 }
 
 public void removeFavoriteMovie(User user, Long movieId) {

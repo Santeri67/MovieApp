@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const movieForm = document.querySelector('#movieForm');
+    const table = document.querySelector('.table table-dark table-striped');
 
     if (movieForm) {
         movieForm.addEventListener('submit', function (e) {
@@ -34,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${movie.duration}</td>
                     <td>${movie.description}</td>
                 `;
+                const noMoviesText = document.querySelector('.no-movies');
+                if (noMoviesText) {
+                    noMoviesText.style.display = 'none';
+}
             })
             .catch((error) => {
                 console.error('Error:', error);

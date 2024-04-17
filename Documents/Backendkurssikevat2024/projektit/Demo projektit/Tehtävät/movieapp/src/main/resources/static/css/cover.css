@@ -1,10 +1,15 @@
 :root {
-  --main-color: blueviolet; /* Example variable */
+  --main-color: rgb(234, 0, 255); /* Example variable */
+}
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 html, body {
   height: 100%;
-  font-family: sans-serif; /* or any other font you prefer */
+ /* or any other font you prefer */
 }
 
 .cover-container {
@@ -15,7 +20,7 @@ html, body {
   position: absolute; /* Making the alert absolute position to place it under the nav bar */
   left: 4px; /* Align to the left side */
   top: 2px; /* Adjust this value depending on your navbar height */
-  width: 210px;
+  width: 250px;
 }
 
 /* Centering content */
@@ -26,7 +31,6 @@ html, body {
 
 h1, .lead {
   color: var(--main-color);
-  /* Additional styling */
 }
 
 /* Continue to adjust other styles as needed to match your design */
