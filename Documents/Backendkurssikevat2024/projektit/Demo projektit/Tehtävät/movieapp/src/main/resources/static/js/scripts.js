@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const movieForm = document.querySelector('#movieForm');
     const toggleButton = document.getElementById('toggleMovieForm');
     const formContainer = document.getElementById('movieFormContainer');
-    const tableBody = document.querySelector('.table.table-dark.table-striped tbody'); // Parent element for delegation
+    const movieForm = document.querySelector('#movieForm');
+    const tableBody = document.querySelector('.table.table-dark.table-striped tbody');
 
     toggleButton.addEventListener('click', function() {
         formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';

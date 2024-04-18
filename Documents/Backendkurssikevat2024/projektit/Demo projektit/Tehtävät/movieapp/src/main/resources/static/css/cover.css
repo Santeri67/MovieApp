@@ -22,15 +22,26 @@ html, body {
   top: 2px; /* Adjust this value depending on your navbar height */
   width: 250px;
 }
+.alert.alert-info {
+  color: blueviolet;
+}
 
 /* Centering content */
-.text-center {
 
-  /* Add other styles as needed */
-}
+
 
 h1, .lead {
   color: var(--main-color);
 }
+.login-card {
+  padding: 0%;
+  margin-top: 0px;
+  border-radius: 50rem; /* Keeps the border-radius as it was */
+  height: 83vh; /* Example fixed height */
+  /* Add more styles as needed */
+  overflow: auto;
+}
+
+
 
 /* Continue to adjust other styles as needed to match your design */

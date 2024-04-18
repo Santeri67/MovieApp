@@ -1,5 +1,12 @@
 /* background.css */
-.gradient-custom {
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0; /* Reset default margin */
+    height: 100%; /* Ensure at least full viewport height */
     background: #6a11cb;
     background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));

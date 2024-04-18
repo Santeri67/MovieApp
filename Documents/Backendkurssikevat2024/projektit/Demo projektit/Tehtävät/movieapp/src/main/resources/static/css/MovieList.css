@@ -1,9 +1,10 @@
 .table.table-dark.table-striped {
     width: 80%;
+    margin-left: auto; /* Centers the table */
+    margin-right: auto; /* Centers the table */
     border-collapse: collapse;
     margin-top: 20px;
     background-color: transparent;
-
 }
 
 .table.table-dark.table-striped th, .table.table-dark.table-striped td {
@@ -12,14 +13,50 @@
     text-align: left;
     color: var(--main-color);
 }
-
-
-
-.table.table-dark.table-striped tr:nth-child(even) {
-
+.delete-button{
+    border-radius: 10px;
+    color: red;
+    background-color: black;
+}
+.button.delete-button {
+    border-radius: 4%;
+    color: red;
+    background-color: black;
 }
 
-.table.table-dark.table-striped tr:hover {
-    background-color: #9ec2fd;
+
+
+.btn.btn-warning {
+color: blueviolet;
+float: left;
+margin-left: 8px;
+}
+/* "press here to add movies form */
+#searchBox {
+    width: 150px; /* Adjust width to your preference */
+    margin-left: 5%; /* Align to the left side */
+    margin-right: auto;
 }
 
+/* Add more space below the "Click here to add movies" button */
+.movie-management {
+    position: relative;
+    justify-content: center;
+}
+#movieFormContainer {
+    position: absolute;
+    top: 100%; /* Position it directly below the button */
+    left: 50%; /* Start at half the width of the parent */
+    transform: translateX(-50%); /* Center it horizontally */
+    display: none; /* Keep it hidden by default */
+    background: #6a11cb;
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    padding: 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Optional: for rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: for a drop shadow */
+    z-index: 10; /* Make sure it's above other elements */
+}
+#logoutForm {
+    color: rgb(224, 219, 228);
+}

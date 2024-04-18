@@ -6,17 +6,22 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/topnav.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/cover.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}" />
+    <link rel="stylesheet" href="/css/MovieList.css">
 
     <!-- Include Bootstrap CSS for styling -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <section class="vh-100 gradient-custom">
         <div th:replace="navigation.html :: body"></div>
             <!-- User alert should go right here, below navigation -->
             <div sec:authorize="isAuthenticated()" class="alert alert-info" role="alert">
             Logged in as: <span sec:authentication="name"></span>
             </div>
+            <form id="logoutForm" th:action="@{/logout}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <input type="submit" value="Logout" class="btn btn-warning"/>
+            </form>
+
             <div class="container text-center mt-5">
             <h1>Welcome to my website!</h1>
             <p class="lead">MovieApp is an application where users can add favourite movies, review them and see other people's favourites, top-lists, etc.</p>
@@ -25,6 +30,5 @@
             <a href="/login" class="btn btn-primary">Login</a>
         </div>
     </div>
-    </section>
 </body>
 </html>
