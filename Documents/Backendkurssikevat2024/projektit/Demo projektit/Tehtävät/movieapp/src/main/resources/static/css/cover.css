@@ -25,6 +25,9 @@ html, body {
 .alert.alert-info {
   color: blueviolet;
 }
+#formTitle {
+  color: var(--main-color);
+}
 
 /* Centering content */
 

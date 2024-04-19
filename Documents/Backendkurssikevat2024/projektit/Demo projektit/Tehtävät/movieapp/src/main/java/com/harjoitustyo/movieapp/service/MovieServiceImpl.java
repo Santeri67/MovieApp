@@ -1,6 +1,7 @@
 package com.harjoitustyo.movieapp.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +45,11 @@ public class MovieServiceImpl implements MovieService {
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
+    @Override
+public Optional<Movie> findById(Long id) {
+    return movieRepository.findById(id);
+}
+
 
     /**
      * Deletes a movie by its ID if it exists.

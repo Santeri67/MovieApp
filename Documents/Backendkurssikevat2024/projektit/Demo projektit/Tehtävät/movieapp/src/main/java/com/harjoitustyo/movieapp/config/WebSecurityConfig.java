@@ -29,7 +29,7 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**", "/api/**"))
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers(HttpMethod.POST, "/api/movies").authenticated()
-                .requestMatchers("/", "/home", "/css/**", "/register", "/h2-console/**").permitAll()
+                .requestMatchers("/", "/home", "/css/**", "/register", "/h2-console/**", "/api/movies/**").permitAll()
                 .anyRequest().authenticated())
             .formLogin(form -> form
                 .loginPage("/login").permitAll()
