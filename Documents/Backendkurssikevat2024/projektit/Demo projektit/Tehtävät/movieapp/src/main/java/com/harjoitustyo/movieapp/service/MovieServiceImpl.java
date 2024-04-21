@@ -9,25 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.harjoitustyo.movieapp.domain.Movie;
+import com.harjoitustyo.movieapp.domain.Review;
 import com.harjoitustyo.movieapp.repository.MovieRepository;
+import com.harjoitustyo.movieapp.repository.ReviewRepository;
 
 @Service
 public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepository;
+    private final ReviewRepository reviewRepository;
     private static final Logger logger = LoggerFactory.getLogger(MovieServiceImpl.class);
 
     @Autowired
-    public MovieServiceImpl(MovieRepository movieRepository) {
+    public MovieServiceImpl(MovieRepository movieRepository, ReviewRepository reviewRepository) {
         this.movieRepository = movieRepository;
+        this.reviewRepository = reviewRepository;
     }
 
-    /**
-     * Saves a movie to the repository.
-     * @param movie the movie to save
-     * @return the saved movie
-     * @throws IllegalArgumentException if the movie or its title is null or empty
-     */
     @Override
     public Movie saveMovie(Movie movie) {
         if (movie == null || movie.getTitle() == null || movie.getTitle().isEmpty()) {
@@ -37,25 +35,16 @@ public class MovieServiceImpl implements MovieService {
         return movieRepository.save(movie);
     }
 
-    /**
-     * Retrieves all movies from the repository.
-     * @return a list of movies
-     */
     @Override
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
+
     @Override
-public Optional<Movie> findById(Long id) {
-    return movieRepository.findById(id);
-}
+    public Optional<Movie> findById(Long id) {
+        return movieRepository.findById(id);
+    }
 
-
-    /**
-     * Deletes a movie by its ID if it exists.
-     * @param movieId the ID of the movie to delete
-     * @throws IllegalArgumentException if the movie does not exist
-     */
     @Override
     public void deleteMovieById(Long movieId) {
         movieRepository.findById(movieId).ifPresentOrElse(
@@ -70,5 +59,14 @@ public Optional<Movie> findById(Long id) {
         );
     }
 
-    // Other methods...
+    @Override
+    public double calculateAverageRating(Long movieId) {
+        List<Review> reviews = reviewRepository.findByMovieId(movieId);
+        if (reviews.isEmpty()) {
+            logger.info("No reviews found for movie ID: {}", movieId);
+            return 0; // Default to 0 if there are no reviews
+        }
+        double total = reviews.stream().mapToDouble(Review::getRating).sum();
+        return total / reviews.size();
+    }
 }

@@ -2,12 +2,44 @@
 
 html {
     height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
     margin: 0; /* Reset default margin */
     height: 100%; /* Ensure at least full viewport height */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background: #6a11cb;
     background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
 }
+.table-responsive {
+    overflow-y: auto; /* Allows vertical scrolling if necessary */
+    max-height: 75vh; /* Adjust this to leave space for the footer */
+    margin-bottom: 50px; /* Same as footer's height to prevent overlap */
+  }
+/* Footer Styles */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #6a11cb;  /* Adjust the color to match your theme */
+    color: white;
+    text-align: center;
+    padding: 9px 0;
+    font-size: small;
+}
+  
+  .footer span {
+    opacity: 0.6;
+  }
+  
+  .footer:hover span {
+    opacity: 1;
+  }
+  

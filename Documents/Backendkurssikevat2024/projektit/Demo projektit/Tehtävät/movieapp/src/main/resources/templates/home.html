@@ -17,10 +17,13 @@
             <div sec:authorize="isAuthenticated()" class="alert alert-info" role="alert">
             Logged in as: <span sec:authentication="name"></span>
             </div>
-            <form id="logoutForm" th:action="@{/logout}" method="post">
-                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                <input type="submit" value="Logout" class="btn btn-warning1"/>
-            </form>
+            
+            <div sec:authorize="isAuthenticated()">
+                <form id="logoutForm" th:action="@{/logout}" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <input type="submit" value="Logout" class="btn btn-warning1"/>
+                </form>
+            </div>
 
             <div class="container text-center mt-5">
             <h1>Welcome to my website!</h1>
@@ -30,5 +33,10 @@
             <a href="/login" class="btn btn-primary">Login</a>
         </div>
     </div>
+    <footer class="footer">
+        <div class="container text-center">
+          <span>Made By Santeri Kuusisto</span>
+        </div>
+      </footer>
 </body>
 </html>

@@ -67,6 +67,5 @@ public class Movie {
     public void setDescription(String description) {
         this.description = description;
     }
-
     // Lisää loput getterit ja setterit...
 }

@@ -5,7 +5,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.harjoitustyo.movieapp", "com.harjoitustyo.movieapp.config, com.harjoitustyo.movieapp.controller, com.harjoitustyo.movieapp.domain, com.harjoitustyo.movieapp.repository, com.harjoitustyo.movieapp.service"})
+@ComponentScan(basePackages = {
+	"com.harjoitustyo.movieapp", 
+	"com.harjoitustyo.movieapp.config", 
+	"com.harjoitustyo.movieapp.controller", 
+	"com.harjoitustyo.movieapp.domain", 
+	"com.harjoitustyo.movieapp.repository", 
+	"com.harjoitustyo.movieapp.service"
+  })
 public class MovieappApplication {
 
 	public static void main(String[] args) {

@@ -104,4 +104,5 @@ public ResponseEntity<?> updateMovie(@PathVariable Long movieId, @RequestBody Mo
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error updating movie: " + e.getMessage());
     }
 }
+    
 }

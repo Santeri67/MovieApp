@@ -15,8 +15,6 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int rating; // esim. 1-5 tähteä
-    private String comment;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -26,7 +24,9 @@ public class Review {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    // Konstruktorit, getterit ja setterit
+    private int rating;
+
+    // Constructors, getters, and setters
     public Long getId() {
         return id;
     }
@@ -34,14 +34,28 @@ public class Review {
     public void setId(Long id) {
         this.id = id;
     }
-    public int getRating(){
+
+    public int getRating() {
         return rating;
     }
-    public String getComment() {
-        return comment;
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
-    public void setComment(String comment) {
-        this.comment = comment;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }
-

@@ -20,7 +20,7 @@ html, body {
   position: absolute; /* Making the alert absolute position to place it under the nav bar */
   left: 4px; /* Align to the left side */
   top: 2px; /* Adjust this value depending on your navbar height */
-  width: 250px;
+  width:fit-content;
 }
 .alert.alert-info {
   color: blueviolet;

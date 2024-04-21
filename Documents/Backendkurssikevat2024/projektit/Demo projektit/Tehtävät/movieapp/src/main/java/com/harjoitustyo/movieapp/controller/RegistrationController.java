@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.harjoitustyo.movieapp.domain.User;
 import com.harjoitustyo.movieapp.service.UserService;
@@ -24,9 +25,14 @@ public String showRegistrationForm(Model model) {
 }
 
 
-    @PostMapping("/register")
-    public String registerUserAccount(User user) {
+@PostMapping("/register")
+public String registerUserAccount(User user, RedirectAttributes redirectAttributes) {
+    try {
         userService.registerNewUserAccount(user);
         return "redirect:/login";
+    } catch (IllegalArgumentException e) {
+        // Handle the case where username is in use - perhaps redirect back to the registration page with an error message
+        redirectAttributes.addFlashAttribute("error", e.getMessage());
+        return "redirect:/register";
     }
-}
+}}

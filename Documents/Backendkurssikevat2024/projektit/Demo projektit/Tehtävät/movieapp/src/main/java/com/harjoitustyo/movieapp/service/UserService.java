@@ -27,7 +27,7 @@ public class UserService {
 
     public User registerNewUserAccount(User user) {
         // Tarkista, ettei samalla käyttäjänimellä ole jo luotu tiliä
-        if (userRepository.findByUsername(user.getUsername()) != null) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username already in use");
             // Heitä poikkeus tai käsittele tilanne, jos käyttäjänimi on jo käytössä
         }

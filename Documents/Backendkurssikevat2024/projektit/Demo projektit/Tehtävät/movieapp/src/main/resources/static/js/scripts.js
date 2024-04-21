@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const noMoviesRow = document.querySelector('.no-movies');
             if (noMoviesRow) {
                 noMoviesRow.remove();
-    }
+            }
 
 
             if (isEditMode) {
@@ -144,4 +144,22 @@ function editMovieHandler(event) {
             formContainer.dataset.mode = 'edit';
         })
         .catch(error => console.error('Error:', error));
+}
+function rateMovie(movieId, rating) {
+    fetch(`/api/reviews/${movieId}/rate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ rating: rating })
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    })
+    .then(data => {
+        console.log('Rating submitted:', data);
+        // Update the UI based on the success response
+    })
+    .catch(error => console.error('Error submitting rating:', error));
 }

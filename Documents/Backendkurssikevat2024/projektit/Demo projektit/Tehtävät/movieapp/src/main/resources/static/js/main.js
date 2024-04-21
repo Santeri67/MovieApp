@@ -46,3 +46,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+function searchMovies() {
+    var input = document.getElementById("searchBox");
+    var filter = input.value.toUpperCase();
+    var table = document.getElementById("moviesTable");
+    var tr = table.getElementsByTagName("tr");
+
+    for (var i = 0; i < tr.length; i++) {
+        var td = tr[i].getElementsByTagName("td")[0];  // Assuming the movie title is in the first column
+        if (td) {
+            var txtValue = td.textContent || td.innerText;
+            tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+        }
+    }
+}
+
