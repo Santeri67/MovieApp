@@ -1,6 +1,121 @@
 :root {
-  --main-color: rgb(234, 0, 255); /* Example variable */
+  --main-color: #00f2fadf; /* Example variable */
 }
+:root {
+  --black: #666;
+  --white: #eaeaea;
+  --gray: #999;
+  --text-arrow-space: 16px;
+  --shaft-width: 64px;
+  --shaft-thickness: 1px;
+  --arrow-head-width: 8px;
+  --arrow-head-thickness: var(--shaft-thickness);
+}
+
+/* Base setup for arrow not to interfere with text before hover */
+.animated-arrow > .the-arrow.-left > .shaft,
+.animated-arrow > .the-arrow.-left > .shaft:before,
+.animated-arrow > .the-arrow.-left > .shaft:after {
+  width: 0; /* Initially, the shaft and arrow heads should not appear */
+  background-color: transparent;
+  transition: width 0.2s, background-color 0.2s;
+}
+
+/* Positioning for the animated arrow element */
+.animated-arrow {
+  padding-top: 40px;
+  display: inline-block;
+  color: #ea02ffc5;
+  font-size: 1.5em;
+  font-style: italic;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+/* On hover, reveal the arrow shaft and heads */
+.animated-arrow:hover > .the-arrow.-left > .shaft {
+  width: var(--shaft-width); /* Reveal the shaft */
+  background-color: var(--main-color); /* Color back to white */
+  transition-delay: 0.1s; /* Delay the transition if needed */
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:before,
+.animated-arrow:hover > .the-arrow.-left > .shaft:after {
+  width: var(--arrow-head-width); /* Reveal the arrow heads */
+  background-color: var(--main-color); /* Color back to white */
+}
+
+/* Positioning for the arrow shaft */
+.the-arrow > .shaft {
+  display: block;
+  height: var(--shaft-thickness);
+  position: relative;
+  transition: all 0.2s;
+}
+
+/* Positioning for the arrow heads */
+.the-arrow > .shaft:before,
+.the-arrow > .shaft:after {
+  content: '';
+  display: block;
+  height: var(--arrow-head-thickness);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.2s;
+}
+
+/* Arrow head transformations */
+.the-arrow > .shaft:before {
+  transform-origin: top right;
+  transform: rotate(40deg); /* Rotate arrow head to make it ready for hover */
+}
+
+.the-arrow > .shaft:after {
+  transform-origin: bottom right;
+  transform: rotate(-40deg); /* Rotate arrow head to make it ready for hover */
+}
+
+/* Main text and arrow alignment */
+.animated-arrow > .main {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+/* Text styling next to arrow */
+.animated-arrow > .main > .text {
+  margin: 0 var(--text-arrow-space) 0 0;
+  line-height: 1;
+}
+
+/* Setup for the right arrow */
+.animated-arrow > .main > .the-arrow.-right > .shaft {
+  width: var(--shaft-width); /* Keep the right arrow always visible */
+  transition-delay: 0.2s;
+}
+
+/* Transformations for the right arrow heads on hover */
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:before,
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:after {
+  width: var(--arrow-head-width);
+  transition-delay: 0.3s;
+  transition: all 0.5s;
+}
+
+/* Color change on hover */
+.animated-arrow:hover {
+  color: var(--main-color);
+}
+
+/* Main movement on hover to make space for the left arrow */
+.animated-arrow:hover > .main {
+  transform: translateX(calc(var(--shaft-width) + var(--text-arrow-space)));
+}
+
+
 *{
   padding: 0;
   margin: 0;

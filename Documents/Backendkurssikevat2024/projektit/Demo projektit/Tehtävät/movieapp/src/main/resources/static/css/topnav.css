@@ -1,12 +1,14 @@
 .topnav {
     background-color: #333;
-    overflow: hidden;
     margin: 0;
     display: flex;          /* Use flex display */
     justify-content: center; /* Center flex items on the main axis */
     align-items: center;     /* Center flex items on the cross axis */
-    height: 70px;
+    height: 65px;
     width: 100%;
+    background-color: rgb(110, 35, 239);
+    border: 2px groove rgb(80, 182, 255);
+
 }
 
 .topnav ul {
@@ -24,14 +26,23 @@
     display:inline-block;
     color: var(--main-color);
     text-align: center;
-    padding: 12px;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
     border-radius: 15px;
+    font-weight: bold;
+    font-family: fantasy;
+    font-size:x-large;
     text-decoration: none;
     margin-top: 20px;
     font-size: large;
+    overflow:visible;
+    height: 50%;
 }
 
 .topnav li a:hover {
-    background-color: #ddd;
+    background-color: #ddddddef;
     color:blueviolet;
+
 }

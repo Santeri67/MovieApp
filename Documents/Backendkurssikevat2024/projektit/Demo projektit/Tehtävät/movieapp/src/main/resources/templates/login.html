@@ -6,13 +6,15 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/topnav.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/cover.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/LoginAndRegister.css}" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div th:replace="navigation.html :: body"></div>
+    
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-8 col-md-8 col-lg-6 col-xl-5">
+            <div class="col-11 col-md-9 col-lg-7 col-xl-6">
                 <!-- Use only one div with class 'card' and 'login-card' -->
                 <div class="card bg-dark text-white login-card">
                     <div class="card-body p-5 text-center">
@@ -20,10 +22,10 @@
                         <form th:action="@{/login}" method="post">
                             <div class="mb-md-5 mt-md-4 pb-5">
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                                <p class="text-white-50 mb-5">Please enter your login credentials</p>
+                                <p class="text-white-50 mb-5">Please fill in your login credentials</p>
                                 
                                 <div class="form-outline form-white mb-4">
-                                    <input type="text" id="username" name="username" class="form-control form-control-lg" placeholder="Email" required />
+                                    <input type="text" id="username" name="username" class="form-control form-control-lg" placeholder="Username" required />
                                 </div>
 
                                 <div class="form-outline form-white mb-4">

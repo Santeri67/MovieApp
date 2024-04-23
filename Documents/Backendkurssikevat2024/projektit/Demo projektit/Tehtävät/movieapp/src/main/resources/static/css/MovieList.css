@@ -6,29 +6,31 @@
     border-collapse: collapse;
     margin-top: 20px;
     background-color: transparent;
-    overflow-x: auto;
     overflow-y: auto; /* Allows vertical scrolling if necessary */
     max-height: 75vh; /* Adjust this to leave space for the footer */
     margin-bottom: 50px; 
 }
 
 .table.table-dark.table-striped td {
-    border: 1px solid black;
+    border: 2px groove rgb(67, 0, 149);
     padding: 8px;
     color: var(--main-color);
     text-align: left;
     overflow: hidden;
 }
 .table.table-dark.table-striped th {
-    border: 2px solid black;
+    border: 3px groove rgb(67, 0, 149);
     padding: 8px;
     color: var(--main-color);
     text-align: left;
     word-break: break-all; /* Breaks the words to prevent overflow */
     overflow: hidden; /* Hides any overflow */
-
+    text-decoration: underline 2px var(--main-color);
     text-overflow: ellipsis; /* Adds an ellipsis to any text that overflows */
     white-space: nowrap;
+    font-family: fantasy;
+    font-style: normal;
+    font-size: larger;
 }
 
 .btn-danger.delete-button {
@@ -37,12 +39,14 @@
     border: none;
     border-radius: 7px;
     width: auto;
-    float: left;
     text-align: center;
+    margin: 0 4px;
+    padding: 4 8px;
+    white-space: nowrap;
 }
 .btn-danger.delete-button:hover {
     color: rgb(182, 6, 6);
-    background-color: rgb(45, 2, 86);
+    background-color: rgba(255, 255, 255, 0.633);
 }
 
 
@@ -50,14 +54,17 @@
     width: auto;
 color: rgb(255, 255, 255);
 background-color: rgb(247, 144, 0);
-margin-left: 0px;
+margin: 0 4px;
 border: none;
 border-radius: 7px;
 float: left;
+padding: 4 8px;
+white-space: nowrap;
+
 }
 .btn.btn-warning:hover{
-    color: rgb(1, 137, 46);
-    background-color: rgb(223, 133, 8);
+    color: rgb(247, 144, 0);
+    background-color: rgba(255, 255, 255, 0.688);
 }
 .btn.btn-warning1 {
     background-color:rgb(247, 144, 0);
@@ -72,18 +79,25 @@ float: left;
     background-color: rgb(60, 3, 107);
     border: 1px solid var(--main-color);
     border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-family: fantasy;
+    height: 45px;
+    width: fit-content;
+    font-size: 25px;
+
 }
 .btn.btn-primary:hover {
     background-color: var(--main-color);
     color: rgb(60, 3, 107);
-    border: 1px solid rgb(60, 3, 107);
+    border: 1px groove rgb(75, 0, 136);
 }
 /* "press here to add movies form */
 #searchBox {
     width: 165px; /* Adjust width to your preference */
     margin-left: 5%; /* Align to the left side */
     margin-right: auto;
-    border: 3px solid rgb(60, 3, 107);
+    border: 3px groove rgb(60, 3, 107);
     overflow-wrap: normal;
 
 }
@@ -95,17 +109,65 @@ float: left;
 }
 #movieFormContainer {
     position: absolute;
-    top: 100%; /* Position it directly below the button */
-    left: 50%; /* Start at half the width of the parent */
-    transform: translateX(-50%); /* Center it horizontally */
-    display: none; /* Keep it hidden by default */
-    background: #6a11cb;
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; /* Using flex to align children */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-    padding: 20px; /* Adjust padding as needed */
-    border-radius: 5px; /* Optional: for rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: for a drop shadow */
-    z-index: 10; /* Make sure it's above other elements */
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+    width: 60%; /* Adjust width as per your design preference */
+    max-width: 400px;
+    max-height: 73vh;
+    margin-top: 20px; /* Add some space on the top */
+}
+#movieForm {
+    width: 100%; /* Use the full width of the parent container */
+    display: flex;
+    flex-direction: column; /* Stack form fields vertically */
+    align-items: center; /* Center form fields horizontally */
+}
+#movieForm label {
+    color: var(--main-color); /* Change the font color */
+    font-size: 0.8rem; /* Change the font size */
+    font-weight: bold; /* Make the font bold */
+    margin-bottom: 3px; /* Add some space below the label */
+    display: block; /* Ensure the label takes up the full width for better alignment */
+    text-align: left; /* Align the text to the left */
+    width: 90%; /* Align the label's width with the input fields */
+}
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 90%; /* Making all inputs take the same width */
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(56, 48, 46);
+    margin-bottom: 4px;
+}
+
+.btn.btn-success {
+    color: var(--main-color);
+    background-color: rgb(60, 3, 107);
+    border: 1px solid var(--main-color);
+    color: white;
+    border-radius: 8px;
+    font-family: fantasy;
+    font-size: 25px;
+    height: 45px;
+    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+    margin-top: 10px;
+}
+
+.btn.btn-success:hover {
+    background-color: var(--main-color);
+    color: rgb(60, 3, 107);
+    border: 1px solid rgb(75, 0, 136);
 }
 #logoutForm {
     color: rgb(224, 219, 228);

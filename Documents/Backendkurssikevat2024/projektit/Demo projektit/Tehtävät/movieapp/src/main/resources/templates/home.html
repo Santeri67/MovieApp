@@ -26,9 +26,24 @@
             </div>
 
             <div class="container text-center mt-5">
-            <h1>Welcome to my website!</h1>
-            <p class="lead">MovieApp is an application where users can add favourite movies, review them and see other people's favourites, top-lists, etc.</p>
+            <h1>Welcome To The Rhealm of Movie Lovers!!</h1>
+            <p class="lead1">This app is called The MovieApp</p>
+            <p class="lead"> MovieApp is an application where users can add their favourite movies, review them and view movies and reviews added by other people.</p>
+            <p class="lead"> Here you can also suggest/advertise great movies, or warn about bad movies NOT worth to watch for other users. </p>
         <!-- Login button shown only if user is not authenticated -->
+        <div class="container">
+            <a th:href="@{/main}" class="animated-arrow">
+                <span class="the-arrow -left">
+                    <span class="shaft"></span>
+                </span>
+                <span class="main">
+                    <span class="text">Click here to try it out!</span>
+                    <span class="the-arrow -right">
+                        <span class="shaft"></span>
+                    </span>
+                </span>
+            </a>
+        </div>
             <div sec:authorize="!isAuthenticated()">
             <a href="/login" class="btn btn-primary">Login</a>
         </div>

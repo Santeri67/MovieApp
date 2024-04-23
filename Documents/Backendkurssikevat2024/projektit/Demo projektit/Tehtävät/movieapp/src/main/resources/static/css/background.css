@@ -2,15 +2,34 @@
 
 html {
     height: 100%;
-    margin: 0;
+
     display: flex;
     flex-direction: column;
+}
+body, html {
+  min-height: 100%;
+  margin: 0;
+  padding-bottom: 900px; /* Adjust as necessary */
+}
+.container.text-center.mt-5 h1 {
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+.container.text-center.mt-5 p {
+  font-family: fantasy;
+  font-size:x-large;
+  padding-top: 80px;
+}
+.container.text-center.mt-5 .lead1 {
+  color: #ea02ffdc;
+  font-size: 50px;
+
 }
 
 body {
     margin: 0; /* Reset default margin */
     height: 100%; /* Ensure at least full viewport height */
-    margin: 0;
     display: flex;
     flex-direction: column;
     background: #6a11cb;
@@ -42,4 +61,5 @@ body {
   .footer:hover span {
     opacity: 1;
   }
+
   

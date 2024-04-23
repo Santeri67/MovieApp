@@ -84,7 +84,7 @@
                         <td th:text="${movie.director}"></td>
                         <td th:text="${movie.duration}"></td>
                         <td th:text="${movie.description}"></td>
-                        <td>
+                        <td class="action-cell">
                             <button type="button" class="btn btn-warning edit-button" th:data-id="${movie.id}">Edit</button>
                             <button type="button" class="btn btn-danger delete-button" th:data-id="${movie.id}">Delete</button>
                         </td>

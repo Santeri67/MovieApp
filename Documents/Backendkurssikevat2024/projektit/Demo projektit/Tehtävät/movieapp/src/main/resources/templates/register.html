@@ -6,26 +6,41 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/topnav.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/cover.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/LoginAndRegister.css}" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div th:replace="navigation.html :: body"></div>
     
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1 class="text-center mb-4">Register New User</h1>
-                <form th:action="@{/register}" th:object="${user}" method="post">
-                    <div class="form-group">
-                        <label for="username">User Name:</label>
-                        <input type="text" class="form-control" id="username" th:field="*{username}" required placeholder="Enter username"/>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-11 col-md-9 col-lg-7 col-xl-6">
+                <!-- Use only one div with class 'card' and 'login-card' -->
+                <div class="card bg-dark text-white login-card">
+                    <div class="card-body p-5 text-center">
+
+                        <form th:action="@{/register}" th:object="${user}" method="post">
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <h2 class="fw-bold mb-3 text-uppercase">Register</h2>
+                                <p class="text-white-50 mb-5">Please enter your username and password</p>
+                                
+                                <div class="form-outline form-white mb-4">
+                                    <input type="text" id="username" th:field="*{username}" class="form-control form-control-lg" placeholder="Username" required />
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" id="password" th:field="*{password}" class="form-control form-control-lg" placeholder="Password" required />
+                                </div>
+
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                            </div>
+                            
+                            <div>
+                                <p class="mb-0">Already have an account? <a href="/login" class="text-white-50 fw-bold">Login here!</a></p>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" th:field="*{password}" required placeholder="Enter password"/>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
