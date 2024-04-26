@@ -92,17 +92,16 @@ white-space: nowrap;
     color: rgb(60, 3, 107);
     border: 1px groove rgb(75, 0, 136);
 }
-/* "press here to add movies form */
 #searchBox {
-    width: 165px; /* Adjust width to your preference */
-    margin-left: 5%; /* Align to the left side */
+    width: 165px;
+    margin-left: 5%;
     margin-right: auto;
     border: 3px groove rgb(60, 3, 107);
     overflow-wrap: normal;
 
 }
 
-/* Add more space below the "Click here to add movies" button */
+
 .movie-management {
     position: relative;
     justify-content: center;
@@ -112,33 +111,33 @@ white-space: nowrap;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    display: flex; /* Using flex to align children */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
     padding: 20px;
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 10;
-    width: 60%; /* Adjust width as per your design preference */
+    width: 60%;
     max-width: 400px;
     max-height: 73vh;
-    margin-top: 20px; /* Add some space on the top */
+    margin-top: 20px;
 }
 #movieForm {
-    width: 100%; /* Use the full width of the parent container */
+    width: 100%;
     display: flex;
-    flex-direction: column; /* Stack form fields vertically */
-    align-items: center; /* Center form fields horizontally */
+    flex-direction: column;
+    align-items: center;
 }
 #movieForm label {
-    color: var(--main-color); /* Change the font color */
-    font-size: 0.8rem; /* Change the font size */
-    font-weight: bold; /* Make the font bold */
-    margin-bottom: 3px; /* Add some space below the label */
-    display: block; /* Ensure the label takes up the full width for better alignment */
-    text-align: left; /* Align the text to the left */
-    width: 90%; /* Align the label's width with the input fields */
+    color: var(--main-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+    display: block;
+    text-align: left;
+    width: 90%;
 }
 input[type="text"],
 input[type="date"],
@@ -160,7 +159,7 @@ textarea {
     font-family: Stencil Std, fantasy;
     font-size: 25px;
     height: 45px;
-    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+    transition: background-color 0.3s ease;
     margin-top: 10px;
 }
 
@@ -173,18 +172,18 @@ textarea {
     color: rgb(224, 219, 228);
 }
 .rated {
-    color: gold; /* Or any color that indicates an active rating */
+    color: gold;
 }
 .btn-danger.delete-button,
 .btn.btn-warning,
 .btn.btn-primary {
-    white-space: nowrap; /* Prevent the text inside buttons from wrapping */
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 968px) {
     .table.table-dark.table-striped {
         width: 100%;
-        font-size: smaller; /* Adjust font size for smaller screens */
+        font-size: smaller
         
     }
     .table.table-dark.table-striped th {

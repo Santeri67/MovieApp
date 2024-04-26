@@ -18,22 +18,19 @@ public class UserService {
     private final MovieRepository movieRepository;
 
 
-    @Autowired // Lisää tämä, jos konstruktori-injektointi ei ole vielä määritelty
+    @Autowired
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, MovieRepository movieRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.movieRepository = movieRepository; // Lisää tämä
+        this.movieRepository = movieRepository;
     }
 
     public User registerNewUserAccount(User user) {
-        // Tarkista, ettei samalla käyttäjänimellä ole jo luotu tiliä
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username already in use");
-            // Heitä poikkeus tai käsittele tilanne, jos käyttäjänimi on jo käytössä
         }
-        // Hashaa salasana ennen tallennusta
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles("ROLE_USER,ROLE_ADMIN"); // Aseta oletusrooli
+        user.setRoles("ROLE_USER,ROLE_ADMIN");
         return userRepository.save(user);
 }
     public void addFavoriteMovie(User user, Long movieId) {
@@ -54,5 +51,4 @@ public void removeFavoriteMovie(User user, Long movieId) {
 }
 
 
-    // Voit lisätä täällä muita käyttäjään liittyviä palveluita
 }

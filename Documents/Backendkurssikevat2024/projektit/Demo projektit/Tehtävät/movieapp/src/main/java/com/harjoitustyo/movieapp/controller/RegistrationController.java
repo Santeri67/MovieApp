@@ -31,7 +31,6 @@ public String registerUserAccount(User user, RedirectAttributes redirectAttribut
         userService.registerNewUserAccount(user);
         return "redirect:/login";
     } catch (IllegalArgumentException e) {
-        // Handle the case where username is in use - perhaps redirect back to the registration page with an error message
         redirectAttributes.addFlashAttribute("error", e.getMessage());
         return "redirect:/register";
     }

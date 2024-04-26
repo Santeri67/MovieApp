@@ -13,22 +13,18 @@ public class ReviewService {
     
     private final ReviewRepository reviewRepository;
 
-    @Autowired // Lisätään konstruktori, joka injektoi ReviewRepositoryn
+    @Autowired
     public ReviewService(ReviewRepository reviewRepository) {
         this.reviewRepository = reviewRepository;
     }
 
-    // Riippuvuuksien injektoinnit ja konstruktori
 
     public Review addReview(Review review) {
-        // Oletettavasti tehdään tarkistuksia ennen tallennusta
         return reviewRepository.save(review);
     }
 
     public List<Review> getReviewsForMovie(Long movieId) {
-        // Oletus: ReviewRepositoryssa on määritelty metodi findReviewsByMovieId
         return reviewRepository.findByMovieId(movieId);
     }
     
-    // Muut tarvittavat metodit
 }

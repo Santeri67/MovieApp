@@ -26,7 +26,6 @@ public class Review {
 
     private int rating;
 
-    // Constructors, getters, and setters
     public Long getId() {
         return id;
     }

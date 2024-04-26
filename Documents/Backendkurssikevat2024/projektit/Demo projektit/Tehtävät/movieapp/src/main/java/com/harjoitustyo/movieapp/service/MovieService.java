@@ -11,5 +11,4 @@ public interface MovieService {
     void deleteMovieById(Long movieId);
     Optional<Movie> findById(Long id);
     double calculateAverageRating(Long movieId);
-    // Other service methods...
 }

@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add CSRF token if needed here
                 },
                 body: json
             })
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(movie => {
-                // Assuming 'movie' is the newly added movie object with all its details
                 const table = document.querySelector('.movie-list-table tbody');
                 const row = table.insertRow();
                 row.innerHTML = `
@@ -53,7 +51,7 @@ function searchMovies() {
     var tr = table.getElementsByTagName("tr");
 
     for (var i = 0; i < tr.length; i++) {
-        var td = tr[i].getElementsByTagName("td")[0];  // Assuming the movie title is in the first column
+        var td = tr[i].getElementsByTagName("td")[0];
         if (td) {
             var txtValue = td.textContent || td.innerText;
             tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";

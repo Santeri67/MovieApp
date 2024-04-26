@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/background.css}" />
     <link rel="stylesheet" href="/css/MovieList.css">
 
-    <!-- Include Bootstrap CSS for styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
@@ -16,7 +15,6 @@
 </head>
 <body>
         <div th:replace="navigation.html :: body"></div>
-            <!-- User alert should go right here, below navigation -->
             <div sec:authorize="isAuthenticated()" class="alert alert-info" role="alert">
             Logged in as: <span sec:authentication="name"></span>
             </div>
@@ -33,7 +31,6 @@
             <p class="lead1">This app is called The MovieApp</p>
             <p class="lead"> MovieApp is an application where users can add their favourite movies, review them and view movies and reviews added by other people.</p>
             <p class="lead"> Here you can also suggest/advertise great movies, or warn about bad movies NOT worth to watch for other users. </p>
-        <!-- Login button shown only if user is not authenticated -->
         <div class="container">
             <a th:href="@{/main}" class="animated-arrow">
                 <span class="the-arrow -left">

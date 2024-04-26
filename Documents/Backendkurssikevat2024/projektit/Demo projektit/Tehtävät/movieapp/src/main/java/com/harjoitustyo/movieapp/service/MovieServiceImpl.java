@@ -64,7 +64,7 @@ public class MovieServiceImpl implements MovieService {
         List<Review> reviews = reviewRepository.findByMovieId(movieId);
         if (reviews.isEmpty()) {
             logger.info("No reviews found for movie ID: {}", movieId);
-            return 0; // Default to 0 if there are no reviews
+            return 0;
         }
         double total = reviews.stream().mapToDouble(Review::getRating).sum();
         return total / reviews.size();

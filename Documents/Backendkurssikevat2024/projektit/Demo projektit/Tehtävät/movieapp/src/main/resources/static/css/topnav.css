@@ -1,9 +1,9 @@
 .topnav {
     background-color: #333;
     margin: 0;
-    display: flex;          /* Use flex display */
-    justify-content: center; /* Center flex items on the main axis */
-    align-items: center;     /* Center flex items on the cross axis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 65px;
     width: 100%;
     background-color: rgb(110, 35, 239);
@@ -12,14 +12,14 @@
 }
 
 .topnav ul {
-    list-style-type: none; /* Remove bullet points from list */
-    padding: 0;            /* Remove padding */
-    display: flex;         /* Use flex display for the list */
-    align-items: center;   /* Align list items vertically */
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .topnav li {
-    /* No changes needed here if you want to keep individual items styles */
+
 }
 
 .topnav li a {

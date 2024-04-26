@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.harjoitustyo.movieapp.domain.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String username); // Lisää metodi käyttäjänimen perusteella etsimiseen
+    Optional<User> findByUsername(String username);
 }

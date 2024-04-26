@@ -70,15 +70,15 @@ public class MovieController {
     @GetMapping("/list")
     public String listMovies(Model model) {
         model.addAttribute("movies", movieService.getAllMovies());
-        return "main"; // Assumes that 'main' is the template where movies are listed
+        return "main";
     }
     @DeleteMapping("/{movieId}")
 public ResponseEntity<?> deleteMovie(@PathVariable Long movieId) {
     try {
         movieService.deleteMovieById(movieId);
-        return ResponseEntity.ok().build(); // Send a successful response
+        return ResponseEntity.ok().build();
     } catch (Exception e) {
-        e.printStackTrace(); // Log the exception for debugging
+        e.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting movie");
     }
 }

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formContainer.style.display = 'block';
             document.getElementById('formTitle').textContent = 'Add Movie'; // Ensure title is set to "Add Movie"
             formContainer.dataset.mode = 'add'; // Set mode to "add"
-            movieForm.reset(); // Reset the form fields
+            movieForm.reset();
         } else {
             formContainer.style.display = 'none';
         }
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         const formData = new FormData(this);
-        const movieId = formData.get('movieId'); // Get the movieId from the form
+        const movieId = formData.get('movieId');
         const isEditMode = formContainer.dataset.mode === 'edit';
         const endpoint = isEditMode ? `/api/movies/${movieId}` : '/api/movies/addMovie';
         const methodType = isEditMode ? 'PUT' : 'POST';
@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(movie => {
             console.log('Received movie data:', movie);
-            // Close the form container after updating or adding
             formContainer.style.display = 'none'; // Hide the form container
 
             const noMoviesRow = document.querySelector('.no-movies');
@@ -159,7 +158,6 @@ function rateMovie(movieId, rating) {
     })
     .then(data => {
         console.log('Rating submitted:', data);
-        // Update the UI based on the success response
     })
     .catch(error => console.error('Error submitting rating:', error));
 }

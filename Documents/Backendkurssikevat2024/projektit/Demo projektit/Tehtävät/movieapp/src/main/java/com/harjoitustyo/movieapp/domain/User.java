@@ -12,18 +12,18 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity // Merkitsee luokan JPA-entiteetiksi
+@Entity
 @Table(name = "kayttajat")
 public class User {
 
-    @Id // Määrittää seuraavan kentän pääavaimen (primary key) sarakkeeksi
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Automaattinen pääavaimen generointi
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String username;
     @NotBlank
     private String password;
-    private String roles; // Yksinkertainen roolien hallinta esimerkin vuoksi
+    private String roles;
 
     @ManyToMany
     @JoinTable(
@@ -33,7 +33,6 @@ public class User {
     )
     private List<Movie> favoriteMovies;
 
-    // Getterit ja setterit kaikille kentille
     public Long getId() {
         return id;
     }
