@@ -28,7 +28,7 @@
     text-decoration: underline 2px var(--main-color);
     text-overflow: ellipsis; /* Adds an ellipsis to any text that overflows */
     white-space: nowrap;
-    font-family: fantasy;
+    font-family: Stencil Std, fantasy;
     font-style: normal;
     font-size: larger;
 }
@@ -81,7 +81,7 @@ white-space: nowrap;
     border-radius: 12px;
     margin-top: 10px;
     margin-bottom: 40px;
-    font-family: fantasy;
+    font-family: Stencil Std, fantasy;
     height: 45px;
     width: fit-content;
     font-size: 25px;
@@ -157,7 +157,7 @@ textarea {
     border: 1px solid var(--main-color);
     color: white;
     border-radius: 8px;
-    font-family: fantasy;
+    font-family: Stencil Std, fantasy;
     font-size: 25px;
     height: 45px;
     transition: background-color 0.3s ease; /* Smooth background color change on hover */

@@ -7,26 +7,26 @@
 }
 .btn-lg.px-5 {
     color: #00f2fadf;
-    font-family: fantasy;
+    font-family: 'MedievalSharp', cursive;
     font-size: x-large;
 }
 /*LOGIN / REGISTER buttons*/
 .btn.btn-outline-light.btn-lg.px-5:hover{
     background-color: #00f2fadf;
     border: groove 2px whitesmoke;
-    font-family: fantasy;
+    font-family: 'MedievalSharp', cursive;
 }
  /*Login header*/
 .fw-bold.mb-2.text-uppercase {
     color: var(--main-color);
     font-size: 68px;
     text-decoration: underline 2px #00f2fadf;
-    font-family: fantasy;
+    font-family: 'MedievalSharp', cursive;
 
 }
 /*Text below login/register*/
 .text-white-50.mb-5 {
-    font-family: fantasy;
+    font-family: 'MedievalSharp', cursive;
     font-size: larger;
     word-break:keep-all;
 }
@@ -35,7 +35,7 @@
     color: var(--main-color);
     font-size: 54px;
     text-decoration: underline 2px #00f2fadf;
-    font-family: fantasy;
+    font-family: 'MedievalSharp', cursive;
     word-break:keep-all;
 }
 
